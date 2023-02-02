@@ -1,5 +1,5 @@
 import {MessageBuilder} from "../shared/message";
-import {Commands, SERVER_INFO_URL, SERVER_URL,} from "../utils/config/constants";
+import {Commands, SERVER_INFO_URL, SERVER_URL} from "../utils/config/constants";
 
 
 const messageBuilder = new MessageBuilder();
@@ -9,12 +9,10 @@ const fetchInfo = async (ctx) => {
 
     await fetch({
         url: SERVER_URL + SERVER_INFO_URL,
-        method: "GET",
+        method: "GET"
     }).then((response) => {
-        if (!response.body)
-            throw Error('No Data')
-
-        return response.body
+        if (!response.body) { throw Error('No Data') }
+        return response.body;
     }).then((data) => {
         try {
             console.log("log", data);
@@ -22,7 +20,7 @@ const fetchInfo = async (ctx) => {
             console.log("log", parsed);
             resp = parsed;
         } catch (error) {
-            throw Error(error.message)
+            throw Error(error.message);
         }
     }).catch(function (error) {
         resp = {error: true, message: error.message};
