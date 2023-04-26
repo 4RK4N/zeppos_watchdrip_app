@@ -16,9 +16,10 @@ const fetchInfo = async (ctx) => {
     }).then((data) => {
         try {
             console.log("log", data);
-            const parsed = JSON.stringify(data);
-            console.log("log", parsed);
-            resp = parsed;
+            // const parsed = JSON.stringify(data);
+            // console.log("log", parsed);
+            // resp = parsed;
+            resp = data;
         } catch (error) {
             throw Error(error.message);
         }
